@@ -1,0 +1,2634 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Combined API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/appriser": {
+      "get": {
+        "tags": [
+          "esop-valuation-submission-appraiser.WebApi"
+        ],
+        "operationId": "GetAppraiser",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTOAppraiserBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Valuation/ContactSubmission": {
+      "post": {
+        "tags": [
+          "Esop.Valuation.ContactSubmission.Webapi"
+        ],
+        "operationId": "ContactSubmission",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTORequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuidBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuidBaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuidBaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/CvmValuationSubmission/Get/{globalId}": {
+      "get": {
+        "tags": [
+          "App.Esop.CvmValuationSubmission.Webapi"
+        ],
+        "operationId": "GetOpmValuationSubmission",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTOEsopValueationResponseBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/CvmValuationSubmission/CvmValuationSubmission": {
+      "post": {
+        "tags": [
+          "App.Esop.CvmValuationSubmission.Webapi"
+        ],
+        "operationId": "PostValuationByGlobalId",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTOEsopPostRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/CvmValuationSubmission/CvmValuationSubmission/Calculate": {
+      "post": {
+        "tags": [
+          "App.Esop.CvmValuationSubmission.Webapi"
+        ],
+        "operationId": "PostValuationByGlobalId1",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTOEsopCalculateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/CvmValuationSubmission/exportToExcel/{globalId}": {
+      "get": {
+        "tags": [
+          "App.Esop.CvmValuationSubmission.Webapi"
+        ],
+        "operationId": "ExportToExcel",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0953040b-0082-41e7-9794-cb854d9b83df"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stream"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Login/Identification": {
+      "post": {
+        "tags": [
+          "App.Esop.Valuation.Login.Webapi"
+        ],
+        "operationId": "Identity",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IdentityRequestDto"
+              },
+              "example": {
+                "Phone": "0543068093",
+                "IdNumber": "200332765"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityLoginManagementResponseDtoBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Login/ResendPassword": {
+      "post": {
+        "tags": [
+          "App.Esop.Valuation.Login.Webapi"
+        ],
+        "operationId": "Resend Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResendPasswordRequestDto"
+              },
+              "example": {
+                "Phone": "0543068093",
+                "OtpGuid": "eee63ad2-35f3-4119-bb33-0cf84cbf39dc"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityLoginManagementResponseDtoBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Login/Verification": {
+      "post": {
+        "tags": [
+          "App.Esop.Valuation.Login.Webapi"
+        ],
+        "operationId": "Verification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerificationRequestDto"
+              },
+              "example": {
+                "Password": "111111",
+                "OtpGuid": "eee63ad2-35f3-4119-bb33-0cf84cbf39dc"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerificationResponseDtoBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Login/RefreshToken": {
+      "post": {
+        "tags": [
+          "App.Esop.Valuation.Login.Webapi"
+        ],
+        "operationId": "RefreshToken",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshTokenResponseDtoBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/OpmValuationSubmission/Get/{globalId}": {
+      "get": {
+        "tags": [
+          "App.Esop.OpmValuationSubmission.Webapi"
+        ],
+        "operationId": "GetOpmValuationSubmission",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0953040b-0082-41e7-9794-cb854d9b83df"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EsopOpmValuationDtoResponseBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/OpmValuationSubmission/{globalId}": {
+      "post": {
+        "tags": [
+          "App.Esop.OpmValuationSubmission.Webapi"
+        ],
+        "operationId": "CreateOrUpdateOpmValuationSubmission",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0953040b-0082-41e7-9794-cb854d9b83df"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EsopOpmValuationDtoResponse"
+              },
+              "example": {
+                "GlobalId": "0953040b-0082-41e7-9794-cb854d9b83df",
+                "FirmId": 1,
+                "ValuationTypeCode": 5,
+                "ValuationMethodCode": 2,
+                "RiskFreeRateMethodCode": 1,
+                "PriceHistoryCalcStatusCode": 0,
+                "MultiplesCalcStatusCode": 0,
+                "MultipleTypeCode": 1,
+                "VolatilityTypeCode": 1,
+                "ValuationStatusCode": 10,
+                "ExitValue": 2000000,
+                "ManualyValuation": 1500000,
+                "RiskFreeRateManualy": 0.03,
+                "VolatilityManualy": 0.4,
+                "NetFinancialAsinits": 200000,
+                "Revenue": 5000000,
+                "ValuationStatusValue": "Draft",
+                "ValuationTypeValue": "Fair Value",
+                "CompanyName": "Test Company",
+                "ValuationMethodValue": "Income Approach",
+                "RiskFreeRateMethodValue": "Market Yield",
+                "VolatilityTypeValue": "Historical",
+                "PriceHistoryCalcStatusValue": "Completed",
+                "MultiplesCalcStatusValue": "Completed",
+                "MultipleTypeValue": "EV/EBITDA",
+                "ValuationDate": "2025-07-31T14:19:19.1493866Z",
+                "ExpectedLiquidityDate": "2026-01-31T14:19:19.1494414Z",
+                "RevenueDate": "2025-04-30T14:19:19.1511621Z",
+                "CapTbl": [
+                  {
+                    "Id": 1,
+                    "LP": 1,
+                    "ClassTypeCode": 100,
+                    "MultipleOrAndInterestCode": 2,
+                    "Cap": 1000000,
+                    "NumberOfShares": 50000,
+                    "OriginalIssueExercisePrice": 10,
+                    "Interest": 0,
+                    "IsCap": true,
+                    "LastInvestmentRound": false,
+                    "ConvertionRight": true,
+                    "MultipleOrAndInterest": false,
+                    "ConversionIncludesInterest": false,
+                    "IsAccumulated": false,
+                    "ClassTypeValue": "Preferred",
+                    "ShareTypeName": "Series A",
+                    "ParticipationType": "Non-Participating",
+                    "PPSLowerOrHigherThanPreferred": "Lower",
+                    "WarrantsOriginalShareType": "Common",
+                    "DDate": "2024-07-31T14:19:19.1504182Z"
+                  }
+                ],
+                "PeerCompany": [
+                  {
+                    "Id": 1,
+                    "Symbol": "TEST",
+                    "Name": "",
+                    "Description": ""
+                  }
+                ],
+                "VolatiltyList": [
+                  {
+                    "Type": "1Y",
+                    "Value": 0.35
+                  }
+                ],
+                "MultipleList": [
+                  {
+                    "Type": "EV/Sales",
+                    "Value": 3.5
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuidBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/OpmValuationSubmission/calculate/{globalId}": {
+      "post": {
+        "tags": [
+          "App.Esop.OpmValuationSubmission.Webapi"
+        ],
+        "operationId": "CalculateOpmValuationSubmission",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0953040b-0082-41e7-9794-cb854d9b83df"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EsopOpmValuationDtoResponse"
+              },
+              "example": {
+                "GlobalId": "0953040b-0082-41e7-9794-cb854d9b83df",
+                "FirmId": 1,
+                "ValuationTypeCode": 5,
+                "ValuationMethodCode": 2,
+                "RiskFreeRateMethodCode": 1,
+                "PriceHistoryCalcStatusCode": 0,
+                "MultiplesCalcStatusCode": 0,
+                "MultipleTypeCode": 1,
+                "VolatilityTypeCode": 1,
+                "ValuationStatusCode": 10,
+                "ExitValue": 2000000,
+                "ManualyValuation": 1500000,
+                "RiskFreeRateManualy": 0.03,
+                "VolatilityManualy": 0.4,
+                "NetFinancialAsinits": 200000,
+                "Revenue": 5000000,
+                "ValuationStatusValue": "Draft",
+                "ValuationTypeValue": "Fair Value",
+                "CompanyName": "Test Company",
+                "ValuationMethodValue": "Income Approach",
+                "RiskFreeRateMethodValue": "Market Yield",
+                "VolatilityTypeValue": "Historical",
+                "PriceHistoryCalcStatusValue": "Completed",
+                "MultiplesCalcStatusValue": "Completed",
+                "MultipleTypeValue": "EV/EBITDA",
+                "ValuationDate": "2025-07-31T14:19:19.1640328Z",
+                "ExpectedLiquidityDate": "2026-01-31T14:19:19.1640331Z",
+                "RevenueDate": "2025-04-30T14:19:19.1640385Z",
+                "CapTbl": [
+                  {
+                    "Id": 1,
+                    "LP": 1,
+                    "ClassTypeCode": 100,
+                    "MultipleOrAndInterestCode": 2,
+                    "Cap": 1000000,
+                    "NumberOfShares": 50000,
+                    "OriginalIssueExercisePrice": 10,
+                    "Interest": 0,
+                    "IsCap": true,
+                    "LastInvestmentRound": false,
+                    "ConvertionRight": true,
+                    "MultipleOrAndInterest": false,
+                    "ConversionIncludesInterest": false,
+                    "IsAccumulated": false,
+                    "ClassTypeValue": "Preferred",
+                    "ShareTypeName": "Series A",
+                    "ParticipationType": "Non-Participating",
+                    "PPSLowerOrHigherThanPreferred": "Lower",
+                    "WarrantsOriginalShareType": "Common",
+                    "DDate": "2024-07-31T14:19:19.1640365Z"
+                  }
+                ],
+                "PeerCompany": [
+                  {
+                    "Id": 1,
+                    "Symbol": "TEST",
+                    "Name": "",
+                    "Description": ""
+                  }
+                ],
+                "VolatiltyList": [
+                  {
+                    "Type": "1Y",
+                    "Value": 0.35
+                  }
+                ],
+                "MultipleList": [
+                  {
+                    "Type": "EV/Sales",
+                    "Value": 3.5
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EsopCalculateValuationDtoResponseBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/OpmValuationSubmission/riskFreeRate/{globalId}": {
+      "post": {
+        "tags": [
+          "App.Esop.OpmValuationSubmission.Webapi"
+        ],
+        "operationId": "RiskFreeRateOpmValuationSubmission",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0953040b-0082-41e7-9794-cb854d9b83df"
+          },
+          {
+            "name": "ValuationDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2025-05-05T00:00:00.0000000"
+          },
+          {
+            "name": "ExpectedLiquidityDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2025-05-05T00:00:00.0000000"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/OpmValuationSubmission/postPeerCompany/{globalId}": {
+      "post": {
+        "tags": [
+          "App.Esop.OpmValuationSubmission.Webapi"
+        ],
+        "operationId": "PostPeerCompanyOpmValuationSubmission",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0953040b-0082-41e7-9794-cb854d9b83df"
+          },
+          {
+            "name": "ValuationDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2025-05-05T00:00:00.0000000"
+          },
+          {
+            "name": "ExpectedLiquidityDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2025-05-05T00:00:00.0000000"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EsopOpmValuationPostPeerCompanyResponseDto"
+                }
+              },
+              "example": {
+                "VolatilityList": [
+                  {
+                    "Value": 0.1,
+                    "Type": "Type1"
+                  },
+                  {
+                    "Value": 2.5,
+                    "Type": "Type2"
+                  },
+                  {
+                    "Value": 5.69,
+                    "Type": "Type2"
+                  }
+                ],
+                "MultipleList": [
+                  {
+                    "Value": 0.1,
+                    "Type": "Type1"
+                  },
+                  {
+                    "Value": 2.5,
+                    "Type": "Type2"
+                  },
+                  {
+                    "Value": 5.69,
+                    "Type": "Type2"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EsopOpmValuationPostPeerCompanyResponseDtoBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/OpmValuationSubmission/exportToExcel/{globalId}": {
+      "get": {
+        "tags": [
+          "App.Esop.OpmValuationSubmission.Webapi"
+        ],
+        "operationId": "ExportToExcel",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0953040b-0082-41e7-9794-cb854d9b83df"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EsopOpmValuationPostPeerCompanyResponseDtoBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/OpmValuationSubmission/companiesEquity/{globalId}": {
+      "post": {
+        "tags": [
+          "App.Esop.OpmValuationSubmission.Webapi"
+        ],
+        "operationId": "CompaniesEquityValue",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "example": "0953040b-0082-41e7-9794-cb854d9b83df"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EsopOpmValuationDtoResponse"
+              },
+              "example": {
+                "GlobalId": "0953040b-0082-41e7-9794-cb854d9b83df",
+                "FirmId": 1,
+                "ValuationTypeCode": 5,
+                "ValuationMethodCode": 2,
+                "RiskFreeRateMethodCode": 1,
+                "PriceHistoryCalcStatusCode": 0,
+                "MultiplesCalcStatusCode": 0,
+                "MultipleTypeCode": 1,
+                "VolatilityTypeCode": 1,
+                "ValuationStatusCode": 10,
+                "ExitValue": 2000000,
+                "ManualyValuation": 1500000,
+                "RiskFreeRateManualy": 0.03,
+                "VolatilityManualy": 0.4,
+                "NetFinancialAsinits": 200000,
+                "Revenue": 5000000,
+                "ValuationStatusValue": "Draft",
+                "ValuationTypeValue": "Fair Value",
+                "CompanyName": "Test Company",
+                "ValuationMethodValue": "Income Approach",
+                "RiskFreeRateMethodValue": "Market Yield",
+                "VolatilityTypeValue": "Historical",
+                "PriceHistoryCalcStatusValue": "Completed",
+                "MultiplesCalcStatusValue": "Completed",
+                "MultipleTypeValue": "EV/EBITDA",
+                "ValuationDate": "2025-07-31T14:19:19.2023975Z",
+                "ExpectedLiquidityDate": "2026-01-31T14:19:19.2023979Z",
+                "RevenueDate": "2025-04-30T14:19:19.2024035Z",
+                "CapTbl": [
+                  {
+                    "Id": 1,
+                    "LP": 1,
+                    "ClassTypeCode": 100,
+                    "MultipleOrAndInterestCode": 2,
+                    "Cap": 1000000,
+                    "NumberOfShares": 50000,
+                    "OriginalIssueExercisePrice": 10,
+                    "Interest": 0,
+                    "IsCap": true,
+                    "LastInvestmentRound": false,
+                    "ConvertionRight": true,
+                    "MultipleOrAndInterest": false,
+                    "ConversionIncludesInterest": false,
+                    "IsAccumulated": false,
+                    "ClassTypeValue": "Preferred",
+                    "ShareTypeName": "Series A",
+                    "ParticipationType": "Non-Participating",
+                    "PPSLowerOrHigherThanPreferred": "Lower",
+                    "WarrantsOriginalShareType": "Common",
+                    "DDate": "2024-07-31T14:19:19.2024013Z"
+                  }
+                ],
+                "PeerCompany": [
+                  {
+                    "Id": 1,
+                    "Symbol": "TEST",
+                    "Name": "",
+                    "Description": ""
+                  }
+                ],
+                "VolatiltyList": [
+                  {
+                    "Type": "1Y",
+                    "Value": 0.35
+                  }
+                ],
+                "MultipleList": [
+                  {
+                    "Type": "EV/Sales",
+                    "Value": 3.5
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EsopCalculateValuationDtoResponseBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/esop/ValuationSubmission/Get": {
+      "get": {
+        "tags": [
+          "App.Esop.ValuationSubmission.Webapi"
+        ],
+        "operationId": "Get",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTOEsopResponseListBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/esop/ValuationSubmission/{globalId}": {
+      "delete": {
+        "tags": [
+          "App.Esop.ValuationSubmission.Webapi"
+        ],
+        "operationId": "Delete",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/esop/ValuationSubmission/Duplicate/{globalId}": {
+      "post": {
+        "tags": [
+          "App.Esop.ValuationSubmission.Webapi"
+        ],
+        "operationId": "Duplicate",
+        "parameters": [
+          {
+            "name": "globalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringBaseResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTOAppraiser": {
+        "type": "object",
+        "properties": {
+          "idNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "firmId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firmName": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTOAppraiserBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DTOAppraiser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTORequest": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GuidBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CapTableEntry": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classTypeCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "shareTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "participationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ppsLowerOrHigherThanPreferred": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCap": {
+            "type": "boolean"
+          },
+          "convertionRight": {
+            "type": "boolean"
+          },
+          "multipleOrAndInterest": {
+            "type": "boolean"
+          },
+          "conversionIncludesInterest": {
+            "type": "boolean"
+          },
+          "warrantsOriginalShareType": {
+            "type": "string",
+            "nullable": true
+          },
+          "cap": {
+            "type": "number",
+            "format": "double"
+          },
+          "numberOfShares": {
+            "type": "number",
+            "format": "double"
+          },
+          "originalIssueExercisePrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "isMultiple": {
+            "type": "boolean"
+          },
+          "multiple": {
+            "type": "number",
+            "format": "double"
+          },
+          "isInterest": {
+            "type": "boolean"
+          },
+          "dDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "interest": {
+            "type": "number",
+            "format": "double"
+          },
+          "isAccumulated": {
+            "type": "boolean"
+          },
+          "lp": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CapTblDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classTypeCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "classTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "shareTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "participationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ppsLowerOrHigherThanPreferred": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCap": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "convertionRight": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "multipleOrAndInterest": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "conversionIncludesInterest": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "warrantsOriginalShareType": {
+            "type": "string",
+            "nullable": true
+          },
+          "cap": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "numberOfShares": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "originalIssueExercisePrice": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "isMultiple": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "multiple": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "isInterest": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "interest": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "isAccumulated": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "lp": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTOEsopCalculateRequest": {
+        "type": "object",
+        "properties": {
+          "globalId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "firmId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valuationStatusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valuationStatusValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationTypeCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valuationTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "expectedLiquidityDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "exitValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "capTbl": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CapTableEntry"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTOEsopPostRequest": {
+        "type": "object",
+        "properties": {
+          "globalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "firmId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationStatusCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationStatusValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationTypeCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "expectedLiquidityDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "exitValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "capTbl": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CapTblDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTOEsopValueationResponse": {
+        "type": "object",
+        "properties": {
+          "globalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "firmId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationStatusCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationStatusValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationTypeCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "expectedLiquidityDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "exitValue": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "capTbl": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CapTblDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTOEsopValueationResponseBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DTOEsopValueationResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Stream": {
+        "type": "object",
+        "properties": {
+          "canRead": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canWrite": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canSeek": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "canTimeout": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "length": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "position": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "readTimeout": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "writeTimeout": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityLoginManagementResponseDto": {
+        "type": "object",
+        "properties": {
+          "otpGuid": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityLoginManagementResponseDtoBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/IdentityLoginManagementResponseDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityRequestDto": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "idNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenResponseDto": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiration": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "expirationRefreshToken": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenResponseDtoBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/RefreshTokenResponseDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResendPasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "otpGuid": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerificationRequestDto": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "otpGuid": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerificationResponseDto": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiration": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "expirationRefreshToken": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerificationResponseDtoBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/VerificationResponseDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalculateClass": {
+        "type": "object",
+        "properties": {
+          "shareClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuePerClass": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "valuePerOneShare": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CapTblItemDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lp": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "classTypeCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "multipleOrAndInterestCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cap": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "numberOfShares": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "originalIssueExercisePrice": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "interest": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "isCap": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "lastInvestmentRound": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "convertionRight": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "multipleOrAndInterest": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "conversionIncludesInterest": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isAccumulated": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "classTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "shareTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "participationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ppsLowerOrHigherThanPreferred": {
+            "type": "string",
+            "nullable": true
+          },
+          "warrantsOriginalShareType": {
+            "type": "string",
+            "nullable": true
+          },
+          "dDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecimalBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EsopCalculateValuationDtoResponse": {
+        "type": "object",
+        "properties": {
+          "globalId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "summary": {
+            "type": "number",
+            "format": "float",
+            "nullable": true,
+            "readOnly": true
+          },
+          "classResult": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CalculateClass"
+            },
+            "nullable": true
+          },
+          "resultsOrdinaryDlomDTO": {
+            "$ref": "#/components/schemas/ResultsOrdinaryDlomDTO"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EsopCalculateValuationDtoResponseBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/EsopCalculateValuationDtoResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EsopInternalResponseDto": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EsopOpmValuationDtoResponse": {
+        "type": "object",
+        "properties": {
+          "globalId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "firmId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationTypeCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationMethodCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "riskFreeRateMethodCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "priceHistoryCalcStatusCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "multiplesCalcStatusCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "multipleTypeCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "volatilityTypeCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "valuationStatusCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "exitValue": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "manualyValuation": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "riskFreeRateManualy": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "volatilityManualy": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "netFinancialAsinits": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "multiple": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "wacc": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "revenue": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "valuationStatusValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationMethodValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "riskFreeRateMethodValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "volatilityTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "priceHistoryCalcStatusValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "multiplesCalcStatusValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "multipleTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expectedLiquidityDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "revenueDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "capTbl": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CapTblItemDto"
+            },
+            "nullable": true
+          },
+          "peerCompany": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PeerCompanyDto"
+            },
+            "nullable": true
+          },
+          "volatiltyList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TypeValueDto"
+            },
+            "nullable": true
+          },
+          "multipleList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TypeValueDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EsopOpmValuationDtoResponseBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/EsopOpmValuationDtoResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EsopOpmValuationPostPeerCompanyResponseDto": {
+        "type": "object",
+        "properties": {
+          "volatilityList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EsopInternalResponseDto"
+            },
+            "nullable": true
+          },
+          "multipleList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EsopInternalResponseDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EsopOpmValuationPostPeerCompanyResponseDtoBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/EsopOpmValuationPostPeerCompanyResponseDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PeerCompanyDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "symbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultsOrdinaryDlomDTO": {
+        "type": "object",
+        "properties": {
+          "ordinaryVolSumproduct": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "finnertyCompanyDLOM": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "finnertyPerOneOrdinaryShare": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "protectivePutDLOMcompany": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "protectionPutPerOneOrdinaryShare": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "asianPutDLOM": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "asianPutPerOneOrdinaryShare": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TypeValueDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTOEsopResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "globalId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "valuationTypeCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valuationTypeValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "valuationStatusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valuationStatusValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "changedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTOEsopResponseListBaseResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DTOEsopResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Please enter a valid token"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}
